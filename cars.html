@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: #ff4d30;
+        --secondary-color: #f8f8f8;
+        --dark-color: #2d2d2d;
+        --light-color: #ffffff;
+        --text-color: #706f7b;
+        --heading-color: #010103;
+        --shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+      }
+      /* Featured Cars */
+      .featured {
+        padding: 100px 0;
+      }
+
+      .featured-cars {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .car-card {
+        background-color: var(--light-color);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .car-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .car-image {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .car-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+      }
+
+      .car-card:hover .car-image img {
+        transform: scale(1.05);
+      }
+
+      .badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        padding: 5px 10px;
+        border-radius: 3px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .car-info {
+        padding: 20px;
+      }
+
+      .car-info h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+      }
+
+      .specs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .specs span {
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        color: var(--text-color);
+      }
+
+      .specs i {
+        margin-right: 5px;
+        color: var(--primary-color);
+      }
+
+      .price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--heading-color);
+        margin-bottom: 15px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        border: none;
+        border-radius: 3px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+        text-align: center;
+      }
+
+      .customize-btn {
+        width: 100%;
+      }
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        box-shadow: var(--shadow);
+      }
+      .fas {
+        font-weight: 900;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="featured" id="featured">
+      <div class="container">
+        <div class="section-header"></div>
+
+        <div class="featured-cars">
+          <!-- Car Item 1 -->
+          <div class="car-card">
+            <div class="car-image">
+              <img src="images/haval h6.jpg" alt="haval h6" />
+            </div>
+            <div class="car-info">
+              <h3>Haval H6</h3>
+              <div class="specs">
+                <span
+                  ><i class="fas fa-tachometer-alt"></i> 4.9s 0-100km/h</span
+                >
+                <span><i class="fas fa-bolt"></i> 181 HP</span>
+                <span><i class="fas fa-gas-pump"></i>Petrol & Hybrid</span>
+              </div>
+              <div class="price">PKR 1.18 crore</div>
+              <button
+                class="btn btn-outline customize-btn"
+                data-car="porsche911"
+              >
+                Customize
+              </button>
+            </div>
+          </div>
+
+          <!-- Car Item 2 -->
+          <div class="car-card">
+            <div class="car-image">
+              <img src="images/SWIFT.jpg" alt="SWIFT" />
+            </div>
+            <div class="car-info">
+              <h3>Suzuki Swift</h3>
+              <div class="specs">
+                <span
+                  ><i class="fas fa-tachometer-alt"></i> 12.5s 0-100km/h</span
+                >
+                <span><i class="fas fa-bolt"></i> 82 HP</span>
+                <span><i class="fas fa-plug"></i> Petrol</span>
+              </div>
+              <div class="price">PKR 47.7 lacs</div>
+              <button
+                class="btn btn-outline customize-btn"
+                data-car="teslamodels"
+              >
+                Customize
+              </button>
+            </div>
+          </div>
+
+          <!-- Car Item 3 -->
+          <div class="car-card">
+            <div class="car-image">
+              <img src="images/kia sportage.jpg" alt="kia Sportage" />
+            </div>
+            <div class="car-info">
+              <h3>KIA Sportage</h3>
+              <div class="specs">
+                <span
+                  ><i class="fas fa-tachometer-alt"></i> 7.54s 0-100km/h</span
+                >
+                <span><i class="fas fa-bolt"></i> 227 HP</span>
+                <span><i class="fas fa-gas-pump"></i> Hybrid & Petrol</span>
+              </div>
+              <div class="price">PKR 1.16 crore</div>
+              <button class="btn btn-outline customize-btn" data-car="audir8">
+                Customize
+              </button>
+            </div>
+          </div>
+          <!-- Car Item 4 -->
+          <div class="car-card">
+            <div class="car-image">
+              <img src="images/Fortuner_-PNG.png" alt="Fortuner-_PNG" />
+            </div>
+            <div class="car-info">
+              <h3>Toyota Fortuner</h3>
+              <div class="specs">
+                <span><i class="fas fa-tachometer-alt"></i> 11s 0-100km/h</span>
+                <span><i class="fas fa-bolt"></i> 201 HP</span>
+                <span><i class="fas fa-gas-pump"></i>Petrol & Diesel</span>
+              </div>
+              <div class="price">PKR 2.05 crore</div>
+              <button
+                class="btn btn-outline customize-btn"
+                data-car="porsche911"
+              >
+                Customize
+              </button>
+            </div>
+          </div>
+          <!-- Car Item 5 -->
+          <div class="car-card">
+            <div class="car-image">
+              <img src="images/honda vezel.jpg" alt="honda vezel" />
+            </div>
+            <div class="car-info">
+              <h3>Honda Vezel</h3>
+              <div class="specs">
+                <span
+                  ><i class="fas fa-tachometer-alt"></i> 8.6s 0-100km/h</span
+                >
+                <span><i class="fas fa-bolt"></i> 146 HP</span>
+                <span><i class="fas fa-gas-pump"></i>Petrol & Hybrid</span>
+              </div>
+              <div class="price">PKR 1.05 crore</div>
+              <button
+                class="btn btn-outline customize-btn"
+                data-car="porsche911"
+              >
+                Customize
+              </button>
+            </div>
+          </div>
+          <!-- Car Item 6 -->
+          <div class="car-card">
+            <div class="car-image">
+              <img src="images/mg 4.jpg" alt="mg 4" />
+            </div>
+            <div class="car-info">
+              <h3>MG 4</h3>
+              <div class="specs">
+                <span
+                  ><i class="fas fa-tachometer-alt"></i> 7.2s 0-100km/h</span
+                >
+                <span><i class="fas fa-bolt"></i> 201 HP</span>
+                <span><i class="fas fa-gas-pump"></i>Electric</span>
+              </div>
+              <div class="price">PKR 1.1 crore</div>
+              <button
+                class="btn btn-outline customize-btn"
+                data-car="porsche911"
+              >
+                Customize
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

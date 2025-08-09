@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Pedia - Explore & Customize Your Dream Car</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- js -->
+    <link rel="stylesheet" href="script.js" />
+
+    <!-- Three.js for 3D models -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="index.html" class="logo">
+          <i class="fas fa-car"></i>
+          <span>CarPedia</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#home" class="active">Home</a>
+          <a href="#featured">Featured</a>
+          <a href="#customize">Customize</a>
+          <a href="#brands">Brands</a>
+          <a href="login.html" class="btn btn-outline">Login</a>
+        </div>
+
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Find & Customize Your <span>Dream Car</span></h1>
+          <p>
+            Explore thousands of cars with detailed specifications and create
+            your perfect version with our 3D customization tool.
+          </p>
+
+          <div class="search-box">
+            <input
+              type="text"
+              placeholder="Search by brand, model or feature..."
+            />
+            <button class="btn"><i class="fas fa-search"></i> Search</button>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>10+</h3>
+              <p>Cars Available</p>
+            </div>
+            <div class="stat-item">
+              <h3>5+</h3>
+              <p>Brands</p>
+            </div>
+            <div class="stat-item">
+              <h3>3D</h3>
+              <p>Customization</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-image">
+          <div id="car-model-viewer"><img src="images/civic.png" alt="" /></div>
+          <div class="color-picker">
+            <span class="color-option" data-color="#ff0000"></span>
+            <span class="color-option" data-color="#0000ff"></span>
+            <span class="color-option" data-color="#000000"></span>
+            <span class="color-option" data-color="#ffffff"></span>
+            <span class="color-option" data-color="#c0c0c0"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Cars -->
+    <section class="featured" id="featured">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured <span>Cars</span></h2>
+          <p>Explore our most popular models</p>
+        </div>
+
+        <div class="featured-cars">
+          <!-- Car Item 1 -->
+          <div class="car-card">
+            <div class="car-image">
+              <img src="images/toyota car.jpg" alt="Toyota Corolla" />
+              <div class="badge">Popular</div>
+            </div>
+            <div class="car-info">
+              <h3>Toyota Corolla</h3>
+              <div class="specs">
+                <span><i class="fas fa-tachometer-alt"></i> 13s 0-100km/h</span>
+                <span><i class="fas fa-bolt"></i> 84 HP</span>
+                <span><i class="fas fa-gas-pump"></i> Petrol</span>
+              </div>
+              <div class="price">PKR 51.0 lacs</div>
+              <button
+                class="btn btn-outline customize-btn"
+                data-car="porsche911"
+              >
+                Customize
+              </button>
+            </div>
+          </div>
+
+          <!-- Car Item 2 -->
+          <div class="car-card">
+            <div class="car-image">
+              <img src="images/honda city car.avif" alt="honda city" />
+              <div class="badge">New</div>
+            </div>
+            <div class="car-info">
+              <h3>Honda City</h3>
+              <div class="specs">
+                <span
+                  ><i class="fas fa-tachometer-alt"></i> 11-13s 0-100km/h</span
+                >
+                <span><i class="fas fa-bolt"></i> 118 HP</span>
+                <span><i class="fas fa-plug"></i> Petrol</span>
+              </div>
+              <div class="price">PKR 59.7 lacs</div>
+              <button
+                class="btn btn-outline customize-btn"
+                data-car="teslamodels"
+              >
+                Customize
+              </button>
+            </div>
+          </div>
+
+          <!-- Car Item 3 -->
+          <div class="car-card">
+            <div class="car-image">
+              <img src="images/mg hs.jpg" alt="mg hs" />
+              <div class="badge">Limited</div>
+            </div>
+            <div class="car-info">
+              <h3>MG HS</h3>
+              <div class="specs">
+                <span
+                  ><i class="fas fa-tachometer-alt"></i> 7.1s 0-100km/h</span
+                >
+                <span><i class="fas fa-bolt"></i> 170 HP</span>
+                <span><i class="fas fa-gas-pump"></i> Petrol</span>
+              </div>
+              <div class="price">PKR 99.0 lacs</div>
+              <button class="btn btn-outline customize-btn" data-car="audir8">
+                Customize
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center">
+          <a href="cars.html" class="btn">View All Cars</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Customization Section -->
+    <section class="customization" id="customize">
+      <div class="container">
+        <div class="section-header">
+          <h2>3D <span>Customization</span></h2>
+          <p>Design your perfect car with our interactive tool</p>
+        </div>
+
+        <div class="customization-container">
+          <div class="customization-viewer">
+            <div id="custom-car-viewer"></div>
+            <div class="viewer-controls">
+              <button class="control-btn rotate-btn">
+                <i class="fas fa-undo"></i> Rotate
+              </button>
+              <button class="control-btn zoom-in-btn">
+                <i class="fas fa-search-plus"></i>
+              </button>
+              <button class="control-btn zoom-out-btn">
+                <i class="fas fa-search-minus"></i>
+              </button>
+              <button class="control-btn reset-btn">
+                <i class="fas fa-sync-alt"></i> Reset
+              </button>
+            </div>
+          </div>
+
+          <div class="customization-options">
+            <div class="option-group">
+              <h3>Color</h3>
+              <div class="color-options">
+                <div
+                  class="color-option active"
+                  data-color="red"
+                  style="background-color: #ff0000"
+                ></div>
+                <div
+                  class="color-option"
+                  data-color="blue"
+                  style="background-color: #0000ff"
+                ></div>
+                <div
+                  class="color-option"
+                  data-color="black"
+                  style="background-color: #000000"
+                ></div>
+                <div
+                  class="color-option"
+                  data-color="white"
+                  style="background-color: #ffffff; border: 1px solid #ddd"
+                ></div>
+                <div
+                  class="color-option"
+                  data-color="silver"
+                  style="background-color: #c0c0c0"
+                ></div>
+                <div
+                  class="color-option"
+                  data-color="yellow"
+                  style="background-color: #ffff00"
+                ></div>
+                <div
+                  class="color-option"
+                  data-color="green"
+                  style="background-color: #008000"
+                ></div>
+              </div>
+            </div>
+
+            <div class="option-group">
+              <h3>Wheels</h3>
+              <div class="wheel-options">
+                <div class="wheel-option active" data-wheel="standard">
+                  <img src="images/wheels/standard.png" alt="Standard Wheels" />
+                  <span>Standard</span>
+                </div>
+                <div class="wheel-option" data-wheel="sport">
+                  <img src="images/wheels/sport.png" alt="Sport Wheels" />
+                  <span>Sport</span>
+                </div>
+                <div class="wheel-option" data-wheel="premium">
+                  <img src="images/wheels/premium.png" alt="Premium Wheels" />
+                  <span>Premium</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="option-group">
+              <h3>Interior</h3>
+              <div class="interior-options">
+                <div class="interior-option active" data-interior="leather">
+                  <img
+                    src="images/interior/leather.png"
+                    alt="Leather Interior"
+                  />
+                  <span>Leather</span>
+                </div>
+                <div class="interior-option" data-interior="alcantara">
+                  <img
+                    src="images/interior/alcantara.png"
+                    alt="Alcantara Interior"
+                  />
+                  <span>Alcantara</span>
+                </div>
+              </div>
+            </div>
+
+            <button class="btn save-design-btn">
+              <i class="fas fa-save"></i> Save My Design
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands" id="brands">
+      <div class="container">
+        <div class="section-header">
+          <h2>Popular <span>Brands</span></h2>
+          <p>Explore cars from top manufacturers</p>
+        </div>
+
+        <div class="brand-logos">
+          <div class="brand-logo">
+            <img src="images/toyota logo.png" alt="toyota" />
+          </div>
+          <div class="brand-logo">
+            <img src="images/honda-logo-png-44819.jpg" alt="honda" />
+          </div>
+          <div class="brand-logo">
+            <img src="images/mg logo.png" alt="mg" />
+          </div>
+          <div class="brand-logo">
+            <img src="images/haval logo.png" alt="haval" />
+          </div>
+          <div class="brand-logo">
+            <img src="images/suzuki logo.png" alt="suzuki" />
+          </div>
+          <div class="brand-logo">
+            <img src="images/kia logo.png" alt="kia" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Create Your Dream Car?</h2>
+          <p>
+            Start customizing now and see your vision come to life with our 3D
+            visualization tool.
+          </p>
+          <a href="#customize" class="btn btn-light">Start Customizing</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-col">
+            <a href="index.html" class="logo">
+              <i class="fas fa-car"></i>
+              <span>CarPedia</span>
+            </a>
+            <p>
+              Your ultimate destination for car exploration and customization.
+              Find your perfect car and make it uniquely yours.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#home">Home</a></li>
+              <li><a href="#featured">Featured Cars</a></li>
+              <li><a href="#brands">Brands</a></li>
+              <li><a href="#customize">Customization</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="#">Help Center</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p>Subscribe to get updates on new cars and features.</p>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your Email" />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 CarPedia. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/3d-viewer.js"></script>
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Login</h2>
+        <form>
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="Enter your username"
+            required
+          />
+
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter your password"
+            required
+          />
+
+          <a href="#" class="forgot-password">Forgot password?</a>
+
+          <button type="submit" class="login-btn">Login</button>
+        </form>
+      </div>
+    </div>
+  </body>
+  <!-------------customization js and css-------------->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+
+  <!--car selection js ---------------------------------------------------->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+  <script>
+    const loginBtn = document.querySelector(".btn.btn-outline");
+    const modal = document.getElementById("loginModal");
+    const closeBtn = document.querySelector(".modal .close");
+
+    // Open modal
+    loginBtn.addEventListener("click", function (e) {
+      e.preventDefault(); // prevent redirect
+      modal.style.display = "flex";
+    });
+
+    // Close modal
+    closeBtn.addEventListener("click", function () {
+      modal.style.display = "none";
+    });
+
+    // Close when clicking outside
+    window.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Initialize 3D viewer
+      let scene, camera, renderer, car, controls;
+      let currentCarModel = "";
+
+      // Car models data - matching what's in your cards
+      const carModels = {
+        "toyota-corolla": {
+          name: "Toyota Corolla",
+          bodySize: { width: 2, height: 0.8, depth: 4 },
+          topSize: { width: 1.5, height: 0.4, depth: 2.5 },
+          wheelPositions: [
+            { x: -0.9, y: -0.2, z: -1.5 },
+            { x: 0.9, y: -0.2, z: -1.5 },
+            { x: -0.9, y: -0.2, z: 1.2 },
+            { x: 0.9, y: -0.2, z: 1.2 },
+          ],
+        },
+        "honda-city": {
+          name: "Honda City",
+          bodySize: { width: 1.9, height: 0.75, depth: 3.8 },
+          topSize: { width: 1.4, height: 0.4, depth: 2.3 },
+          wheelPositions: [
+            { x: -0.85, y: -0.2, z: -1.4 },
+            { x: 0.85, y: -0.2, z: -1.4 },
+            { x: -0.85, y: -0.2, z: 1.1 },
+            { x: 0.85, y: -0.2, z: 1.1 },
+          ],
+        },
+        "mg-hs": {
+          name: "MG HS",
+          bodySize: { width: 2.1, height: 0.85, depth: 4.2 },
+          topSize: { width: 1.7, height: 0.45, depth: 2.7 },
+          wheelPositions: [
+            { x: -0.95, y: -0.2, z: -1.6 },
+            { x: 0.95, y: -0.2, z: -1.6 },
+            { x: -0.95, y: -0.2, z: 1.3 },
+            { x: 0.95, y: -0.2, z: 1.3 },
+          ],
+        },
+      };
+
+      function init3DViewer() {
+        // Scene setup
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf0f0f0);
+
+        // Camera setup
+        camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        camera.position.set(0, 1, 3);
+
+        // Renderer setup
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(600, 400);
+        document
+          .getElementById("custom-car-viewer")
+          .appendChild(renderer.domElement);
+
+        // Lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(ambientLight);
+
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        directionalLight.position.set(1, 1, 1);
+        scene.add(directionalLight);
+
+        // Controls
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+
+        // Animation loop
+        function animate() {
+          requestAnimationFrame(animate);
+          controls.update();
+          renderer.render(scene, camera);
+        }
+        animate();
+      }
+
+      // Create car model based on type
+      function createCarModel(carType, color = 0xff0000) {
+        // Remove existing car if present
+        if (car) {
+          scene.remove(car);
+        }
+
+        if (!carModels[carType]) {
+          console.error("Car model not found:", carType);
+          return;
+        }
+
+        const model = carModels[carType];
+        currentCarModel = carType;
+
+        car = new THREE.Group();
+
+        // Car body
+        const bodyGeometry = new THREE.BoxGeometry(
+          model.bodySize.width,
+          model.bodySize.height,
+          model.bodySize.depth
+        );
+        const bodyMaterial = new THREE.MeshPhongMaterial({
+          color: color,
+          flatShading: true,
+        });
+        const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+        body.position.y = model.bodySize.height / 2;
+        car.add(body);
+
+        // Car top
+        const topGeometry = new THREE.BoxGeometry(
+          model.topSize.width,
+          model.topSize.height,
+          model.topSize.depth
+        );
+        const topMaterial = new THREE.MeshPhongMaterial({
+          color: color,
+          flatShading: true,
+        });
+        const top = new THREE.Mesh(topGeometry, topMaterial);
+        top.position.y = model.bodySize.height + model.topSize.height / 2;
+        top.position.z = -0.3;
+        car.add(top);
+
+        // Wheels (standard by default)
+        createWheels("standard", color, model.wheelPositions);
+
+        scene.add(car);
+
+        // Update the car name in the customization section
+        document.querySelector(
+          ".customization .section-header h2 span"
+        ).textContent = model.name;
+      }
+
+      // Create wheels based on type
+      function createWheels(type, carColor, positions) {
+        // Remove existing wheels
+        const wheels = car.children.filter((child) => child.name === "wheel");
+        wheels.forEach((wheel) => car.remove(wheel));
+
+        let wheelColor, wheelRadius, wheelWidth;
+
+        switch (type) {
+          case "sport":
+            wheelColor = 0x333333;
+            wheelRadius = 0.4;
+            wheelWidth = 0.2;
+            break;
+          case "premium":
+            wheelColor = 0x888888;
+            wheelRadius = 0.35;
+            wheelWidth = 0.25;
+            break;
+          default: // standard
+            wheelColor = 0x222222;
+            wheelRadius = 0.3;
+            wheelWidth = 0.15;
+        }
+
+        const wheelGeometry = new THREE.CylinderGeometry(
+          wheelRadius,
+          wheelRadius,
+          wheelWidth,
+          32
+        );
+        const wheelMaterial = new THREE.MeshPhongMaterial({
+          color: wheelColor,
+          flatShading: true,
+        });
+
+        positions.forEach((pos) => {
+          const wheel = new THREE.Mesh(wheelGeometry, wheelMaterial);
+          wheel.rotation.z = Math.PI / 2;
+          wheel.position.set(pos.x, pos.y, pos.z);
+          wheel.name = "wheel";
+          car.add(wheel);
+        });
+      }
+
+      // Initialize the 3D viewer
+      init3DViewer();
+
+      // Handle window resize
+      window.addEventListener("resize", function () {
+        const container = document.getElementById("custom-car-viewer");
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+      });
+
+      // Customize button click handlers - UPDATED TO MATCH YOUR CARD DATA
+      document.querySelectorAll(".customize-btn").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          // Map the data-car attributes to match your card images
+          const carMap = {
+            porsche911: "toyota-corolla", // Your Toyota Corolla image
+            teslamodels: "honda-city", // Your Honda City image
+            audir8: "mg-hs", // Your MG HS image
+          };
+
+          const dataCar = this.getAttribute("data-car");
+          const carModel = carMap[dataCar] || "toyota-corolla";
+
+          // Scroll to customization section
+          document
+            .getElementById("customize")
+            .scrollIntoView({ behavior: "smooth" });
+
+          // Load the selected car model with default red color
+          createCarModel(carModel, 0xff0000);
+
+          // Reset selections
+          resetCustomizationOptions();
+        });
+      });
+
+      function resetCustomizationOptions() {
+        // Reset color selection to red
+        document.querySelectorAll(".color-option").forEach((opt) => {
+          opt.classList.remove("active");
+          if (opt.getAttribute("data-color") === "red") {
+            opt.classList.add("active");
+          }
+        });
+
+        // Reset wheel selection to standard
+        document.querySelectorAll(".wheel-option").forEach((opt) => {
+          opt.classList.remove("active");
+          if (opt.getAttribute("data-wheel") === "standard") {
+            opt.classList.add("active");
+          }
+        });
+
+        // Reset interior selection to leather
+        document.querySelectorAll(".interior-option").forEach((opt) => {
+          opt.classList.remove("active");
+          if (opt.getAttribute("data-interior") === "leather") {
+            opt.classList.add("active");
+          }
+        });
+      }
+
+      // Color selection
+      const colorOptions = document.querySelectorAll(".color-option");
+      colorOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          // Update active state
+          document
+            .querySelector(".color-option.active")
+            .classList.remove("active");
+          this.classList.add("active");
+
+          // Change car color
+          const colorValue = this.getAttribute("data-color");
+          let hexColor;
+
+          switch (colorValue) {
+            case "red":
+              hexColor = 0xff0000;
+              break;
+            case "blue":
+              hexColor = 0x0000ff;
+              break;
+            case "black":
+              hexColor = 0x000000;
+              break;
+            case "white":
+              hexColor = 0xffffff;
+              break;
+            case "silver":
+              hexColor = 0xc0c0c0;
+              break;
+            case "yellow":
+              hexColor = 0xffff00;
+              break;
+            case "green":
+              hexColor = 0x008000;
+              break;
+            default:
+              hexColor = 0xff0000;
+          }
+
+          // Update car body and top materials
+          if (car) {
+            car.children.forEach((part) => {
+              if (part.material && part.name !== "wheel") {
+                part.material.color.setHex(hexColor);
+              }
+            });
+          }
+        });
+      });
+
+      // Wheel selection
+      const wheelOptions = document.querySelectorAll(".wheel-option");
+      wheelOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          // Update active state
+          document
+            .querySelector(".wheel-option.active")
+            .classList.remove("active");
+          this.classList.add("active");
+
+          // Change wheels
+          const wheelType = this.getAttribute("data-wheel");
+          const currentColor = document
+            .querySelector(".color-option.active")
+            .getAttribute("data-color");
+          let hexColor;
+
+          switch (currentColor) {
+            case "red":
+              hexColor = 0xff0000;
+              break;
+            case "blue":
+              hexColor = 0x0000ff;
+              break;
+            case "black":
+              hexColor = 0x000000;
+              break;
+            case "white":
+              hexColor = 0xffffff;
+              break;
+            case "silver":
+              hexColor = 0xc0c0c0;
+              break;
+            case "yellow":
+              hexColor = 0xffff00;
+              break;
+            case "green":
+              hexColor = 0x008000;
+              break;
+            default:
+              hexColor = 0xff0000;
+          }
+
+          if (car && currentCarModel && carModels[currentCarModel]) {
+            createWheels(
+              wheelType,
+              hexColor,
+              carModels[currentCarModel].wheelPositions
+            );
+          }
+        });
+      });
+
+      // Interior selection
+      const interiorOptions = document.querySelectorAll(".interior-option");
+      interiorOptions.forEach((option) => {
+        option.addEventListener("click", function () {
+          document
+            .querySelector(".interior-option.active")
+            .classList.remove("active");
+          this.classList.add("active");
+        });
+      });
+
+      // Viewer controls
+      document
+        .querySelector(".rotate-btn")
+        .addEventListener("click", function () {
+          controls.autoRotate = !controls.autoRotate;
+          this.classList.toggle("active");
+        });
+
+      document
+        .querySelector(".zoom-in-btn")
+        .addEventListener("click", function () {
+          camera.fov /= 1.1;
+          camera.updateProjectionMatrix();
+        });
+
+      document
+        .querySelector(".zoom-out-btn")
+        .addEventListener("click", function () {
+          camera.fov *= 1.1;
+          camera.updateProjectionMatrix();
+        });
+
+      document
+        .querySelector(".reset-btn")
+        .addEventListener("click", function () {
+          camera.position.set(0, 1, 3);
+          camera.lookAt(0, 0, 0);
+          controls.reset();
+          camera.fov = 75;
+          camera.updateProjectionMatrix();
+        });
+
+      // Save design button
+      document
+        .querySelector(".save-design-btn")
+        .addEventListener("click", function () {
+          if (!currentCarModel || !carModels[currentCarModel]) return;
+
+          const color = document
+            .querySelector(".color-option.active")
+            .getAttribute("data-color");
+          const wheels = document
+            .querySelector(".wheel-option.active")
+            .getAttribute("data-wheel");
+          const interior = document
+            .querySelector(".interior-option.active")
+            .getAttribute("data-interior");
+
+          alert(
+            `Design saved!\nCar: ${carModels[currentCarModel].name}\nColor: ${color}\nWheels: ${wheels}\nInterior: ${interior}`
+          );
+        });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", function () {
+        // Toggle mobile menu
+        navLinks.classList.toggle("active");
+
+        // Animate hamburger to X
+        hamburger.classList.toggle("active");
+      });
+
+      // Close menu when clicking a link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", function () {
+          if (window.innerWidth <= 768) {
+            navLinks.classList.remove("active");
+            hamburger.classList.remove("active");
+          }
+        });
+      });
+
+      // Close menu when resizing to desktop
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 768) {
+          navLinks.classList.remove("active");
+          hamburger.classList.remove("active");
+        }
+      });
+    });
+  </script>
+</html>
